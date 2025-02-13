@@ -21,6 +21,5 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('', include('ledger.urls', namespace='ledger')),
-	path('', lambda req: redirect('/recipes/list')),
 ]
 

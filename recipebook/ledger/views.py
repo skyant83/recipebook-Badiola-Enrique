@@ -1,8 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
-""" def recipe(request):
-	return list_page(request) """
 
 def list_page(request):
 	context = {
