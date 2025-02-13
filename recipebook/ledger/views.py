@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def recipe(request):
-	return HttpResponse("Recipe URL")
+""" def recipe(request):
+	return list_page(request) """
 
 def list_page(request):
-	ctx = {
+	context = {
 		"recipes": [
 			{
 				"name": "Recipe 1",
@@ -69,140 +69,70 @@ def list_page(request):
 			}
 		]
 	}
-	return render(request, 'list.html', ctx)
+	return render(request, 'recipe_book.html', context)
 
 def recipe_page1(request):
-	ctx = {
-		#^ WIP --> to be replaced with recipe 1 context
-		"recipes": [
+	context = {
+		"name": "Recipe 1",
+		"ingredients": [
 			{
-				"name": "Recipe 1",
-				"ingredients": [
-					{
-						"name": "tomato",
-						"quantity": "3pcs"
-					},
-					{
-						"name": "onion",
-						"quantity": "1pc"
-					},
-					{
-						"name": "pork",
-						"quantity": "1kg"
-					},
-					{
-						"name": "water",
-						"quantity": "1L"
-					},
-					{
-						"name": "sinigang mix",
-						"quantity": "1 packet"
-					}
-				],
-				"link": "/recipe/1"
+				"name": "tomato",
+				"quantity": "3pcs"
 			},
 			{
-				"name": "Recipe 2",
-				"ingredients": [
-					{
-						"name": "garlic",
-						"quantity": "1 head"
-					},
-					{
-						"name": "onion",
-						"quantity": "1pc"
-					},
-					{
-						"name": "vinegar",
-						"quantity": "1/2cup"
-					},
-					{
-						"name": "water",
-						"quanity": "1 cup"
-					},
-					{
-						"name": "salt",
-						"quantity": "1 tablespoon"
-					},
-					{
-						"name": "whole black peppers",
-						"quantity": "1 tablespoon"
-					},
-					{
-						"name": "pork",
-						"quantity": "1 kilo"
-					}
-				],
-				"link": "/recipe/2"
+				"name": "onion",
+				"quantity": "1pc"
+			},
+			{
+				"name": "pork",
+				"quantity": "1kg"
+			},
+			{
+				"name": "water",
+				"quantity": "1L"
+			},
+			{
+				"name": "sinigang mix",
+				"quantity": "1 packet"
 			}
-		]
+		],
+		"link": "/recipe/1"
 	}
-	return render(request, 'list.html', ctx)
+	return render(request, 'recipe.html', context)
 
 def recipe_page2(request):
-	ctx = {
-		#^ WIP --> to be replaced with recipe 2 context
-		"recipes": [
+	context = {
+		"name": "Recipe 2",
+		"ingredients": [
 			{
-				"name": "Recipe 1",
-				"ingredients": [
-					{
-						"name": "tomato",
-						"quantity": "3pcs"
-					},
-					{
-						"name": "onion",
-						"quantity": "1pc"
-					},
-					{
-						"name": "pork",
-						"quantity": "1kg"
-					},
-					{
-						"name": "water",
-						"quantity": "1L"
-					},
-					{
-						"name": "sinigang mix",
-						"quantity": "1 packet"
-					}
-				],
-				"link": "/recipe/1"
+				"name": "garlic",
+				"quantity": "1 head"
 			},
 			{
-				"name": "Recipe 2",
-				"ingredients": [
-					{
-						"name": "garlic",
-						"quantity": "1 head"
-					},
-					{
-						"name": "onion",
-						"quantity": "1pc"
-					},
-					{
-						"name": "vinegar",
-						"quantity": "1/2cup"
-					},
-					{
-						"name": "water",
-						"quanity": "1 cup"
-					},
-					{
-						"name": "salt",
-						"quantity": "1 tablespoon"
-					},
-					{
-						"name": "whole black peppers",
-						"quantity": "1 tablespoon"
-					},
-					{
-						"name": "pork",
-						"quantity": "1 kilo"
-					}
-				],
-				"link": "/recipe/2"
+				"name": "onion",
+				"quantity": "1pc"
+			},
+			{
+				"name": "vinegar",
+				"quantity": "1/2cup"
+			},
+			{
+				"name": "water",
+				"quantity": "1 cup"
+			},
+			{
+				"name": "salt",
+				"quantity": "1 tablespoon"
+			},
+			{
+				"name": "whole black peppers",
+				"quantity": "1 tablespoon"
+			},
+			{
+				"name": "pork",
+				"quantity": "1 kilo"
 			}
-		]
+		],
+		"link": "/recipe/2"
 	}
-	return render(request, 'list.html', ctx)
+	return render(request, 'recipe.html', context)
