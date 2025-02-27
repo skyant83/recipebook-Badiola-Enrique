@@ -1,18 +1,14 @@
-from django.shortcuts import render
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 from .models import Recipe
 
 
-def list_page(req):
-    recipes = Recipe.objects.all()
-    ctx = {
-        "recipes": recipes
-        }
-    return render(req, 'recipe_book.html', ctx)
+class RecipeListView(ListView):
+    model = Recipe
+    template_name = 'recipe_book.html'
 
 
-def recipe(req, pk):
-    ctx = {
-        'recipe': Recipe.objects.get(pk=pk)
-    }
-    return render(req, 'recipe.html', ctx)
+class RecipeDetailView(DetailView):
+    model = Recipe
+    template_name = 'recipe.html'

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -15,8 +16,7 @@ class Ingredient(models.Model):
         verbose_name_plural = 'Ingredients'
 
     def get_absolute_url(self):
-        from django.urls import reverse
-        return reverse('ledger:recipe', kwargs={'pk': self.pk})
+        return reverse('ledger:ingredient', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.name
@@ -28,7 +28,6 @@ class Recipe(models.Model):
     name = models.CharField(max_length=255)
 
     def get_absolute_url(self):
-        from django.urls import reverse
         return reverse('ledger:recipe', kwargs={'pk': self.pk})
 
     class Meta:
@@ -48,7 +47,7 @@ class RecipeIngredient(models.Model):
     ingredient = models.ForeignKey(
         Ingredient,
         on_delete=models.CASCADE,
-        related_name="recipe")
+        related_name="recipes")
 
     recipe = models.ForeignKey(
         Recipe,
