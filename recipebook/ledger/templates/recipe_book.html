@@ -1,6 +1,6 @@
 {% extends 'base_template.html' %}
+{% block header %}Recipe List{% endblock header %}
 {% block content %}
-    <h1>Recipe List</h1>
     <ul>
         {% for recipe in object_list %}
             <li><a href="{{recipe.get_absolute_url}}">{{recipe.name}}</a></li>

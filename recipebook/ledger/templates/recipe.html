@@ -1,7 +1,15 @@
 {% extends 'base_template.html' %}
+{% block header %}Recipe Details{% endblock header %}
 {% block content %}
-    <h1>Recipe Details</h1>
-    <h3>{{ recipe.name }}</h3>
+    <div style="
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        height: 10px;">
+
+        <h3>{{ recipe.name }}</h3>
+        <p>by {{ recipe.author }}</p>
+    </div>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ingredient.quantity}} {{ingredient.ingredient.name}}</li>
