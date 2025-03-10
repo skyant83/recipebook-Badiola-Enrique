@@ -30,7 +30,7 @@
                         <button type="submit">Logout</button>
                     </form>
                 {% else %}
-                    <form method="post", action="{% url 'login' %}">
+                    <form action="{% url 'login' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit">Login</button>
