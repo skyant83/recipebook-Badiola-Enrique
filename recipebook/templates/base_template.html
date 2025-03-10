@@ -23,11 +23,19 @@
                         <p>Welcome, {{ user.username }}.</p>
                     {% endif %}
                 </div>
-                <form method="post", action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Logout</button>
-                </form>
+                {% if user.is_authenticated %}
+                    <form method="post", action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Logout</button>
+                    </form>
+                {% else %}
+                    <form method="post", action="{% url 'login' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Login</button>
+                    </form>
+                {% endif %}
             </div>
         </div>
 

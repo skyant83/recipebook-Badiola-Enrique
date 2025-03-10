@@ -11,7 +11,6 @@ class RecipeDetailView(LoginRequiredMixin, DetailView):
     redirect_field_name = 'accounts/login'
 
 
-class RecipeListView(LoginRequiredMixin, ListView):
+class RecipeListView(ListView):
     model = Recipe
     template_name = 'recipe_book.html'
-    redirect_field_name = 'accounts/login'
