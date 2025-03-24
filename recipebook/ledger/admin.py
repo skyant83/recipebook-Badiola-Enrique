@@ -1,8 +1,8 @@
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.admin import User
+from django.contrib.auth.models import User
 from django.contrib import admin
 
-from .models import Profile, Recipe, RecipeIngredient
+from .models import Profile, Recipe, RecipeImage, RecipeIngredient
 
 # Register your models here.
 
@@ -18,13 +18,19 @@ class UserAdmin(BaseUserAdmin):
 class RecipeIngredientInline(admin.TabularInline):
     '''Inline Admin for RecipeIngredient'''
     model = RecipeIngredient
+    extra = 1
+
+
+class RecipeImageInline(admin.TabularInline):
+    model = RecipeImage
+    extra = 1
 
 
 class RecipeAdmin(admin.ModelAdmin):
     '''Admin View for Recipe'''
 
     model = Recipe
-    inlines = [RecipeIngredientInline,]
+    inlines = [RecipeIngredientInline, RecipeImageInline,]
 
 
 admin.site.unregister(User)
