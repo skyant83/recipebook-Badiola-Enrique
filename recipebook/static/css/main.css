@@ -1,0 +1,30 @@
+.top-head {
+	display: grid;
+	grid-template: 'h h .';
+	align-items: center;
+	height: 60px;
+}
+
+.page-title {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.user {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.recipe {
+	display: flex;
+	align-items: center;
+	column-gap: 5px;
+	height: 10px;
+}
+
+.recipe_image {
+	display: block;
+	margin: auto;
+	object-fit: cover;
+}

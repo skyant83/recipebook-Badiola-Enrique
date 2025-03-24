@@ -1,12 +1,14 @@
 {% extends 'base_template.html' %}
+{% load static %}
 {% block header %}Recipe Details{% endblock header %}
 {% block content %}
-    <div style="
-        display: flex;
-        align-items: center;
-        column-gap: 5px;
-        height: 10px;">
-
+{% if recipe.recipe_image %}
+    {% for img in recipe.recipe_image.all %}
+        <img class="recipe_image" src="{{ img.image.url }}" alt="{{ img.description }}">
+    {% endfor %}
+{% endif %}
+<br>
+    <div class="recipe">
         <h3>{{ recipe.name }}</h3>
         <p>by {{ recipe.author }}</p>
     </div>
