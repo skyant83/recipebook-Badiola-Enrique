@@ -1,6 +1,21 @@
 {% extends 'base_template.html' %}
 {% load static %}
-{% block header %}Recipe List{% endblock header %}
+
+{% block header %}
+    <div class="same-line">
+        <h2>Recipe List</h2>
+
+        {% if user.is_authenticated %}
+        <div>
+            <a class="button" href="{% url 'ledger:add_recipe' %}">
+                <p>&#10133</p>
+                <p class="small">Add Recipe</p>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+{% endblock header %}
+
 {% block content %}
     <ul>
         {% for recipe in object_list %}

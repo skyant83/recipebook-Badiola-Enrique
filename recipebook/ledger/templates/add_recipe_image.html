@@ -1,0 +1,17 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block header %}
+    <h2>{{ object_list.name }}</h2>
+    <p>&#8592 <a href="{% url 'ledger:list_page' %}">Back</a></p>
+{% endblock header %}
+
+{% block content %}
+    <form id="form-container" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="same-line">
+            {{ image.as_p }}
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock content %}

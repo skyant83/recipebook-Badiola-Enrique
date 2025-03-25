@@ -1,0 +1,30 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block header %}
+    <h2>Add Recipe</h2>
+    <p>&#8592 <a href="{% url 'ledger:list_page' %}">Back</a></p>
+{% endblock header %}
+
+{% block content %}
+    <form id="form-container" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="extend-recipe">
+            {{ recipe.as_p }}
+        </div>
+        <div class="same-line">
+            {{ image.as_p }}
+        </div>
+        {{ingredients.management_form}}
+        {% for form in ingredients %}
+            <div class="ingredients same-line">
+                {{ form.as_p }}
+            </div>
+        {% endfor %}
+        <button id="same-line-form" type="button">Add Ingredients</button>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="{% static 'js/additional_ingredients.js' %}"></script>
+{% endblock content %}

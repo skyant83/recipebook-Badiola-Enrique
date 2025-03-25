@@ -30,6 +30,7 @@ class RecipeAdmin(admin.ModelAdmin):
     '''Admin View for Recipe'''
 
     model = Recipe
+    list_display = ('name', 'author', 'created_on', 'updated_on',)
     inlines = [RecipeIngredientInline, RecipeImageInline,]
 
 

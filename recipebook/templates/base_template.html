@@ -22,13 +22,11 @@
                 {% if user.is_authenticated %}
                     <form method="post", action="{% url 'logout' %}">
                         {% csrf_token %}
-                        {{ form.as_p }}
                         <button type="submit">Logout</button>
                     </form>
                 {% else %}
                     <form action="{% url 'login' %}">
                         {% csrf_token %}
-                        {{ form.as_p }}
                         <button type="submit">Login</button>
                     </form>
                 {% endif %}
@@ -36,7 +34,7 @@
         </div>
 
         <hr>
-        <h2>{% block header %}Header{% endblock header %}</h2>
+        {% block header %}<h2>Header</h2>{% endblock header %}
 
         {% block content %}{% endblock %}
     </body>

@@ -1,3 +1,26 @@
+.same-line {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.extend-recipe {
+	display: flex;
+	align-items: center;
+	column-gap: 12ch;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	column-gap: 5px;
+	text-decoration: none;
+}
+
+.small {
+	font-size: 13px;
+}
+
 .top-head {
 	display: grid;
 	grid-template: 'h h .';
@@ -23,8 +46,15 @@
 	height: 10px;
 }
 
-.recipe_image {
+.recipe-image {
 	display: block;
 	margin: auto;
 	object-fit: cover;
+	max-width: 15%;
+	height: auto;
+	text-align: center;
+}
+
+.image {
+	display: flex;
 }
